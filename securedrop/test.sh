@@ -6,7 +6,8 @@ if [ $(which vagrant) ] ; then
     echo ""
 fi
 
-export PYTHONPATH=./tests
+echo "PYTHONPATH: $PYTHONPATH"
+export PYTHONPATH=$PYTHONPATH:./tests
 
 # -f makes unittest fail fast, so we can use && to avoid burying test failures
 python -m unittest -fv tests.unit_tests && python -m unittest -fv tests.functional.submit_and_retrieve_message #&& python -m unittest -fv tests.functional.submit_and_retrieve_file
